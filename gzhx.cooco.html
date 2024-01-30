@@ -1,0 +1,1130 @@
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="no-transform " />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="applicable-device" content="pc" />
+<meta name="renderer" content="webkit" />
+<meta name="xhtml" http-equiv="mobile-agent" content="format=xhtml; url=http://mgzhx.cooco.net.cn/testdetail/528310/" />
+<meta name="html5" http-equiv="mobile-agent" content="format=html5; url=http://mgzhx.cooco.net.cn/testdetail/528310/" />
+<link name="head_link" rel="alternate" media="only screen and (max-width: 640px)" href="http://mgzhx.cooco.net.cn/testdetail/528310/" />
+
+  <title>探究醋酸浓度与电离度关系的</title>
+  <meta name="Keywords" content="探究醋酸浓度与电离度关系的" />
+  <meta name="description" content="探究醋酸浓度与电离度关系的" />
+  <link rel="stylesheet" type="text/css" href="/static/new_pay/css/main.css?v=23021415">
+  <link rel="stylesheet" type="text/css" href="/static/new_pay/lib/layui/css/layui.css">
+
+<link rel="stylesheet" type="text/css" href="/static/web_site/css/lessonmain.css?v=23021415">
+<link rel="stylesheet" href="/static/web_site/css/lessontestnew.css?v=23021415">
+
+
+<script>
+  (function () {
+    //路径对应表(废弃)
+    function urlRex(sub){
+      var urlobj = {
+      "lesson_kn":"//"+sub+".cooco.net.cn/testpaper/",     //章节组卷
+      };
+      var winurl = window.location.href;
+      for (const key in urlobj) {
+        if (Object.hasOwnProperty.call(urlobj, key)) {
+          const element = urlobj[key];
+          if(winurl.indexOf(key)!=-1){
+              //跳转对应wap
+              window.location.href = urlobj[key];
+              break;
+          }
+        }
+      }
+    }
+
+    var _method = {
+      // 设置cookie(当前时间开始计时)
+      setCookie: function (key, val, time, pravite) {
+        var date = new Date();
+        var expiresDays = time ? time : 1;
+        date.setTime(date.getTime() + expiresDays * 24 * 3600 * 1000);
+        // date.setDate(date.getDate() + expiresDays);
+        if (pravite) {
+          document.cookie = key + "=" + escape(val) + ";expires=" + date.toGMTString() + ";path=/";
+        } else {
+          document.cookie = key + "=" + escape(val) + ";expires=" + date.toGMTString() + ";domain=" +
+            DOMAIN_COOKIE + ";path=/";
+        }
+      },
+      // 获取cookie
+      getCookie: function (key) {
+        var getCookie = document.cookie.replace(/[ ]/g, "");
+        var arrCookie = getCookie.split(";")
+        var tips;
+        for (var i = 0; i < arrCookie.length; i++) {
+          var arr = arrCookie[i].split("=");
+          if (key == arr[0]) {
+            tips = arr[1];
+            break;
+          }
+        }
+        return tips;
+      },
+      // 是否移动端
+      isMobile: function () {
+        //return /Mobile/i.test(navigator.userAgent);
+        var sUserAgent= navigator.userAgent.toLowerCase();
+        var bIsIpad= sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs= sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp= sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7= sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc= sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid= sUserAgent.match(/android/i) == "android";
+        var bIsCE= sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM= sUserAgent.match(/windows mobile/i) == "windows mobile";
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+          return true;
+        }else{
+          return false;
+        }
+
+      }
+    };
+
+    // 判定浏览器和其他环境并跳转
+    function _clientJump(link) {
+      if (_method.getCookie('_fromwap')) {
+        // 从wap跳转至pc
+        return false;
+      } else if (_method.isMobile() && link) {
+        window.location.href = link;
+      }
+    }
+
+    // 暴露
+    window._clientJump = _clientJump;
+  }());
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8815918644127772"
+     crossorigin="anonymous"></script>
+<script type="text/javascript">
+  window._clientJump && window._clientJump("http://mgzhx.cooco.net.cn/testdetail/528310/")
+</script>
+<script type="application/ld+json">
+  {
+    "pubDate": "2023/07/05",
+    "upDate": "2023/07/05"
+  }
+</script>
+
+</head>
+
+<body>
+
+  <!-- 信息 -->
+  <div style="display: none" id="_userInfo" data-uid=""></div>
+  <!-- 信息 end-->
+  <!-- 公共头部 -->
+  <!-- 公共头部 -->
+<div class="m-navHeader pub">
+  <!-- 登录状态 -->
+  <div class="tct gWidth">
+    <a href="http://cooco.net.cn/" class="left" onclick="_hmt.push(['_trackEvent', '可圈可点', '首页按钮', '点击', 10])">
+      <div class="logo">可圈可点 -</div>
+      <div class="text">百万题库，名师组卷，专业又权威</div>
+    </a>
+    <div class="right">
+      <div class="vipG">
+        <div class="vip">个人VIP</div>
+      </div>
+
+      <div class="m-navLogin">
+        <div class="loginBtn" layui-event="login"
+          onclick="_hmt.push(['_trackEvent', '个人VIP/登录注册', '登录注册', '点击', 10])">登录丨注册
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- 登录状态 end-->
+</div>
+<!-- 公共头部 end-->
+  <!-- 公共头部 end-->
+
+
+<input id="subjectIpt" style="display: none;" type="text" value="gzhx">
+<input id="subjectIdIpt" style="display: none;" type="text" value="528310">
+<!-- 已查看的数据 -->
+<div id="lessonViewed" style="display: none;" data-viewdata="" data-vcount=""></div>
+<!-- 已查看的数据 end-->
+<!-- 是否登录 -->
+
+<!-- 是否登录 end-->
+<!-- 草稿相关 -->
+<div id="draftIpt" data-activeList="" style="display: none;"></div>
+<!-- 草稿相关 end-->
+<!-- 查看答案相关 -->
+<div style="display:none;" class="g-page-parmas" id="g-page-parmas" data-paytype="8|9" data-subtype="subject"
+  data-chaptername="电离平衡" data-sectionname="电离平衡" data-subject="高中化学"></div>
+<!-- 查看答案相关 end-->
+<!-- 搜索 -->
+<!-- 搜索 -->
+<div class="m-search">
+  <div class="searchGroup gWidth">
+    <a href="http://cooco.net.cn/" class="logo"></a>
+    <!-- 搜索组 -->
+    <div class="searchBox f-f0 layui-form hs2">
+      <select class="select f-ibm" name="city" lay-filter="searchtest">
+        <option value="2">试题</option>
+        <option value="1">试卷</option>
+        <!-- <option value="3">教案</option> -->
+        <option value="4">题库</option>
+        <option value="5">资讯</option>
+        <option value="6">作文</option>
+      </select>
+      <div class="line f-ibm"></div>
+      <input class="searchIpt f-ibm" value="" name="search" type="text" placeholder="搜索14,007,325套精选试卷">
+      <input class="type" style="display: none;" name="type" value="4" type="text">
+      <div class="searchBtn f-ibm f-btn"></div>
+    </div>
+    <!-- 搜索组 end-->
+
+    <a class="searchGoMake" href="http://pro.cooco.net.cn/new_make/gzhx/" target="_blank">我的试题篮</a>
+  </div>
+</div>
+<!-- 搜索 end-->
+
+<!-- 搜索 end-->
+<!-- 导航 -->
+<!-- 导航 -->
+<div class="m-headNav">
+  <div class="navCT">
+    <div class="gWidth f-f0">
+      <div class="dropG f-ibm">
+        <div class="label">当前：高中化学</div>
+        <div class="dropCT f-f0">
+          <div class="item f-ibm">
+            <div class="tit">初中</div>
+            <div class="menus f-f0">
+
+              <a href="http://czwl.cooco.net.cn/" class="jumpLink f-ibm ">物理</a>
+
+              <a href="http://czsx.cooco.net.cn/" class="jumpLink f-ibm ">数学</a>
+
+              <a href="http://czhx.cooco.net.cn/" class="jumpLink f-ibm ">化学</a>
+
+              <a href="http://czyy.cooco.net.cn/" class="jumpLink f-ibm ">英语</a>
+
+              <a href="http://czyw.cooco.net.cn/" class="jumpLink f-ibm ">语文</a>
+
+              <a href="http://czls.cooco.net.cn/" class="jumpLink f-ibm ">历史</a>
+
+              <a href="http://czsw.cooco.net.cn/" class="jumpLink f-ibm ">生物</a>
+
+              <a href="http://czdl.cooco.net.cn/" class="jumpLink f-ibm ">地理</a>
+
+              <a href="http://czzz.cooco.net.cn/" class="jumpLink f-ibm ">政治</a>
+
+            </div>
+          </div>
+          <div class="line f-ibm"></div>
+          <div class="item f-ibm">
+            <div class="tit">高中</div>
+            <div class="menus f-f0">
+
+              <a href="http://gzwl.cooco.net.cn/" class="jumpLink f-ibm ">物理</a>
+
+              <a href="http://gzsx.cooco.net.cn/" class="jumpLink f-ibm ">数学</a>
+
+              <a href="http://gzhx.cooco.net.cn/" class="jumpLink f-ibm active">化学</a>
+
+              <a href="http://gzyy.cooco.net.cn/" class="jumpLink f-ibm ">英语</a>
+
+              <a href="http://gzyw.cooco.net.cn/" class="jumpLink f-ibm ">语文</a>
+
+              <a href="http://gzls.cooco.net.cn/" class="jumpLink f-ibm ">历史</a>
+
+              <a href="http://gzsw.cooco.net.cn/" class="jumpLink f-ibm ">生物</a>
+
+              <a href="http://gzdl.cooco.net.cn/" class="jumpLink f-ibm ">地理</a>
+
+              <a href="http://gzzz.cooco.net.cn/" class="jumpLink f-ibm ">政治</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="navs f-ibm f-f0">
+  <a href="http://cooco.net.cn/" class="navlink f-ibm">首页</a>
+  <a href="http://gzhx.cooco.net.cn/test/" class="navlink f-ibm">章节组卷</a>
+  <a href="http://znzj.cooco.net.cn/?lesson=gzhx" class="navlink f-ibm">智能组卷</a>
+
+  <a href="http://gzhx.cooco.net.cn/user/newdown/1/" class="navlink f-ibm">找试卷</a>
+  <a href="http://pro.cooco.net.cn/new_exams_list/gzhx/" class="navlink f-ibm">同步测试</a>
+
+  <a href="http://pro.cooco.net.cn/page_zgk/gzhx/" class="navlink f-ibm">高考</a>
+  <a href="http://cooco.net.cn/question/" class="navlink f-ibm">题库</a>
+    <div class="navlink f-ibm hasDrop">
+      <a href="//czwl.cooco.net.cn/test/" class="link">更多</a>
+      <div class="navDropG">
+        <a href="http://gzhx.cooco.net.cn/zt/" class="dlink f-btn">专题</a>
+        <a href="//cooco.net.cn/article/" class="dlink f-btn">资讯</a>
+        <a href="//czwl.cooco.net.cn/tech/" class="dlink f-btn">教案</a>
+        <a href="//cooco.net.cn/zuowen/" class="dlink f-btn">作文</a>
+      </div>
+    </div>
+
+</div>
+
+      <!-- 特权介绍入口 -->
+      <div class="privG f-ibm f-fr">
+        <a href="http://pro.cooco.net.cn/vip_rights/" class="label f-f0" target="_blank">
+          <div class="f-ibm icon icon_vip"></div>
+          <div class="f-ibm txt">会员特权</div>
+        </a>
+        <div class="privDrop">
+          <div class="privDropCT">
+            <div class="toplist f-f0tc">
+              <!-- <div onclick="_targetPayFun(15)" data-url="http://pro.cooco.net.cn/vip_pay/?fromtype=15" class="ite f-ibm"> -->
+              <a target="_blank" href="http://pro.cooco.net.cn/vip_pay/?fromtype=15" class="ite f-ibm">
+                <div class="titG f-f0">
+                  <div class="name f-ib">· 全站终身VIP</div>
+                  <div class="num1 f-ib">199元</div>
+                  <!-- <div class="num2 f-ib">590</div> -->
+                </div>
+                <div class="desc">一次性购买，终身无限制使用</div>
+                <div class="action f-f0">
+                  <div class="btn btn1 f-btn f-ibm">立刻抢购</div>
+                  <div class="btnDesc f-ibm">限时立减100元</div>
+                </div>
+              </a>
+              <!-- <div onclick="_targetPayFun(16)" data-url="http://pro.cooco.net.cn/vip_pay/?fromtype=16" class="ite f-ibm"> -->
+              <a target="_blank" href="http://pro.cooco.net.cn/vip_pay/?fromtype=16" class="ite f-ibm">
+                <div class="titG f-f0">
+                  <div class="name f-ib">全站年VIP</div>
+                  <div class="num1 f-ib">99元/年</div>
+                  <div class="num2 f-ib"></div>
+                </div>
+                <div class="desc">
+                  全站14007325+权威精品试题<br />1年无限制使用
+                </div>
+                <div class="action f-f0">
+                  <div class="btn btn2 f-btn f-ibm">立刻抢购</div>
+                </div>
+              </a>
+            </div>
+            <div class="line1"></div>
+            <div class="rowTit">全站VIP包含以下所有学科分类会员：</div>
+            <div class="row f-f0 highschool">
+              <div class="f-ibt lab">高中</div>
+              <div class="f-ibt list f-f0">
+                <div class="it f-ibm">语文</div>
+                <div class="it f-ibm">数学</div>
+                <div class="it f-ibm">英语</div>
+                <div class="it f-ibm">物理</div>
+                <div class="it f-ibm">化学</div>
+                <div class="it f-ibm">生物</div>
+                <div class="it f-ibm">地理</div>
+                <div class="it f-ibm">政治</div>
+                <div class="it f-ibm">历史</div>
+              </div>
+            </div>
+            <div class="row f-f0 midschool">
+              <div class="f-ibt lab">初中</div>
+              <div class="f-ibt list f-f0">
+                <div class="it f-ibm">语文</div>
+                <div class="it f-ibm">数学</div>
+                <div class="it f-ibm">英语</div>
+                <div class="it f-ibm">物理</div>
+                <div class="it f-ibm">化学</div>
+                <div class="it f-ibm">生物</div>
+                <div class="it f-ibm">地理</div>
+                <div class="it f-ibm">政治</div>
+                <div class="it f-ibm">历史</div>
+              </div>
+            </div>
+            <div class="actions">
+              <a href="http://pro.cooco.net.cn/vip_rights/" class="view f-btn">查看更多特权</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 特权介绍入口 end-->
+
+    </div>
+
+  </div>
+</div>
+<!-- 导航 end-->
+<!-- 导航 end-->
+<div style="display: none" id="qa_test"><p>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <font face="宋体">     探究醋酸浓度与电离度    </font>   </span>   <span>    <img height="24.0667" src="http://service.cooco.net.cn/cooco_test_imgs/0404/23/07/05/0404230705040404094950.files/040423070504040409495021.wmf" width="22.2667"/>   </span>   <span>    <font face="宋体">     关系的步骤如下，与相关步骤对应的操作或叙述正确的    </font>   </span>   <span>    <o:p>    </o:p>   </span>  </p>  <table>   <tr>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:1.0000pt solid rgb(0,0,0);mso-border-left-alt:0.7500pt solid rgb(0,0,0);  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:1.0000pt solid rgb(0,0,0);  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:1.0000pt solid rgb(0,0,0);  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       步骤      </span>      <span>       <o:p>       </o:p>      </span>     </p>     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:1.0000pt solid rgb(0,0,0);  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       操作或叙述      </span>      <span>       <o:p>       </o:p>      </span>     </p>    </td>   </tr>   <tr>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:1.0000pt solid rgb(0,0,0);mso-border-left-alt:0.7500pt solid rgb(0,0,0);  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       A      </span>      <span>       <o:p>       </o:p>      </span>     </p>     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       Ⅰ.       <font face="宋体">        用       </font>      </span>      <span>       <img height="16.6667" src="http://service.cooco.net.cn/cooco_test_imgs/0404/23/07/05/0404230705040404094950.files/040423070504040409495022.wmf" width="42.2"/>      </span>      标准溶液标定醋酸溶液浓度      <span>       <o:p>       </o:p>      </span>     </p>     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       滴定时应始终注视滴定管中的液面      </span>      <span>       <o:p>       </o:p>      </span>     </p>    </td>   </tr>   <tr>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:1.0000pt solid rgb(0,0,0);mso-border-left-alt:0.7500pt solid rgb(0,0,0);  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       B      </span>      <span>       <o:p>       </o:p>      </span>     </p>     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       Ⅱ.       <font face="宋体">        用标定后的溶液配制不同浓度的醋酸溶液       </font>      </span>      <span>       <o:p>       </o:p>      </span>     </p>     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       应使用干燥的容量瓶      </span>      <span>       <o:p>       </o:p>      </span>     </p>    </td>   </tr>   <tr>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:1.0000pt solid rgb(0,0,0);mso-border-left-alt:0.7500pt solid rgb(0,0,0);  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       C      </span>      <span>       <o:p>       </o:p>      </span>     </p>     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       Ⅲ.       <font face="宋体">        测定步骤       </font>       <font face="Times New Roman">        Ⅱ       </font>       <font face="宋体">        中所得溶液的       </font>      </span>      <span>       <img height="18.7333" src="http://service.cooco.net.cn/cooco_test_imgs/0404/23/07/05/0404230705040404094950.files/040423070504040409495023.wmf" width="22.2667"/>      </span>      <o:p>      </o:p>     </p>     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       应在相同温度下测定      </span>      <span>       <o:p>       </o:p>      </span>     </p>    </td>   </tr>   <tr>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:1.0000pt solid rgb(0,0,0);mso-border-left-alt:0.7500pt solid rgb(0,0,0);  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       D      </span>      <span>       <o:p>       </o:p>      </span>     </p>     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       Ⅳ.       <font face="宋体">        计算不同浓度溶液中醋酸的电离度       </font>      </span>      <span>       <o:p>       </o:p>      </span>     </p>     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       计算式为      </span>      <span>       <img height="49.1333" src="http://service.cooco.net.cn/cooco_test_imgs/0404/23/07/05/0404230705040404094950.files/040423070504040409495024.wmf" width="150.133"/>      </span>      <o:p>      </o:p>     </p>    </td>   </tr>  </table>  <p>   <span>    A    <font face="宋体">     ．    </font>    <font face="Times New Roman">     A    </font>   </span>   <span>   </span>   <span>    B    <font face="宋体">     ．    </font>    <font face="Times New Roman">     B    </font>   </span>   <span>   </span>   <span>    C    <font face="宋体">     ．    </font>    <font face="Times New Roman">     C    </font>   </span>   <span>   </span>   <span>    D    <font face="宋体">     ．    </font>    <font face="Times New Roman">     D    </font>   </span>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <o:p>    </o:p>   </span>  </p><br><p>答案</p><br><p>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    C   </span>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <font face="宋体">     【详解】    </font>    A    <font face="宋体">     ．中和滴定时眼睛应始终注视锥形瓶内溶液颜色的变化，    </font>    <font face="Times New Roman">     A    </font>    <font face="宋体">     错误；    </font>   </span>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    B    <font face="宋体">     ．配制不同浓度的醋酸溶液时，容量瓶不需要干燥，    </font>    <font face="Times New Roman">     B    </font>    <font face="宋体">     错误；    </font>   </span>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    C    <font face="宋体">     ．温度影响醋酸的电离平衡，因此测定步骤    </font>    <font face="Times New Roman">     Ⅰ    </font>    <font face="宋体">     中所得溶液的    </font>   </span>   <span>    <img height="18.7333" src="http://service.cooco.net.cn/cooco_test_imgs/0404/23/07/05/0404230705040404094950.files/040423070504040409495023.wmf" width="22.2667"/>   </span>   <span>    <font face="宋体">     时应在相同温度下测定，    </font>    C    <font face="宋体">     正确；    </font>   </span>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    D    <font face="宋体">     ．电离度是指弱电解质在溶液里达电离平衡时，已电离的电解质分子数占原来总分子数（包括已电离的和未电离的）的百分数，因此醋酸的电离度计算式为    </font>   </span>   <span>    <img height="46.9333" src="http://service.cooco.net.cn/cooco_test_imgs/0404/23/07/05/0404230705040404094950.files/0404230705040404094950133.wmf" width="153.667"/>   </span>   <span>    <font face="宋体">     ，    </font>    D    <font face="宋体">     错误；    </font>   </span>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <font face="宋体">     答案选    </font>    C    <font face="宋体">     。    </font>   </span>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <o:p>    </o:p>   </span>  </p></div>
+
+<div class="baidu_img_Grasp" style="display: none">
+  <img src="http://pro.cooco.net.cn/kn_img/gzhx/432.jpg">
+</div>
+
+<!-- 顶部悬浮 -->
+<div class="ftopGroup">
+  <div class="ct gWidth f-f0">
+    <a href="http://cooco.net.cn/" class="logo f-ibm"></a>
+    <div class="txt f-toe f-ibm"></div>
+    <div class="f-fr f-ibm f-f0 right">
+
+      <!--      <div class="f-btn f-ibm rightDownBtn" layui-event="login">下载试题</div>-->
+      <div class="f-btn f-ibm rightDownBtn dtdownBtn" data-url="http://pro.cooco.net.cn/pay_c1/?fromtype=1"
+        target="_blank">下载试题</div>
+
+    </div>
+  </div>
+</div>
+<!-- 顶部悬浮 end-->
+
+<div class="page-lessontest gWidth">
+  <!-- 面包屑导航 -->
+  <div class="brumbGroup f-f0">
+    <div class="icon f-ibm"></div>
+    <div class="label f-ibm">当前位置：</div>
+    <a class="item f-ibm" href="http://gzhx.cooco.net.cn/test/">学科首页</a>
+
+    <div class="symbol f-ibm">&gt;</div>
+    <a class="item f-ibm" href="http://gzhx.cooco.net.cn/test/">电离平衡</a>
+    <div class="symbol f-ibm">&gt;</div>
+    <a class="item f-ibm" href="http://gzhx.cooco.net.cn/test/">电离平衡</a>
+
+    <div class="symbol f-ibm">&gt;</div>
+    <a class="item f-ibm" href="">试题详情</a>
+
+  </div>
+  <!-- 面包屑导航 end-->
+
+  <div class="makeBody f-f0">
+    <!-- 试卷内容 -->
+    <div class="makeContent f-ibt">
+
+      <div class="block">
+        <!-- 单条题目 -->
+        <div
+          class="subjectGroup m-vipActions show  subjectGroup_v2 dt-subject_v2"
+          data-lesson="gzhx" data-id="528310" data-coll="0" data-ltype="1"
+          data-tname="选择题" data-drafttype="add">
+          <div class="subjectTop f-f0 f-unselect">
+            <div class="label f-ibm">
+              <span class="txt">难度：</span>
+              <span class="starbox" data-diff="中等">
+
+                <i class="icon icon_star active"></i>
+
+                <i class="icon icon_star active"></i>
+
+                <i class="icon icon_star active"></i>
+
+                <i class="icon icon_star "></i>
+
+                <i class="icon icon_star "></i>
+
+              </span>
+            </div>
+            <div class="f-ibm px1"></div>
+            <div class="label f-ibm">使用次数：255</div>
+            <div class="f-ibm px1"></div>
+            <div class="label f-ibm">更新时间：2023-07-05</div>
+            <div class="right f-fr f-f0">
+
+              <!-- <div class="btn f-ibm f-btn toggleBtn" data-id="528310" data-type="add">组卷/试题篮</div> -->
+              <!-- <div class="btn f-ibm f-btn draftBtn" data-type="add"  layui-event="login" >加入组卷</div> -->
+              <div class="btn f-ibm f-btn checkBtn" layui-event="login" >纠错</div>
+
+            </div>
+          </div>
+          <div class="line"></div>
+          <div class="subjCT ct m-copy_ct" data-id="528310" data-lesson="gzhx">
+            <div class=" subjectNumber">1. </div>
+            <p>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <font face="宋体">     探究醋酸浓度与电离度    </font>   </span>   <span>    <img height="24.0667" src="http://service.cooco.net.cn/cooco_test_imgs/0404/23/07/05/0404230705040404094950.files/040423070504040409495021.wmf" width="22.2667"/>   </span>   <span>    <font face="宋体">     关系的步骤如下，与相关步骤对应的操作或叙述正确的    </font>   </span>   <span>    <o:p>    </o:p>   </span>  </p>  <table>   <tr>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:1.0000pt solid rgb(0,0,0);mso-border-left-alt:0.7500pt solid rgb(0,0,0);  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:1.0000pt solid rgb(0,0,0);  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:1.0000pt solid rgb(0,0,0);  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       步骤      </span>      <span>       <o:p>       </o:p>      </span>     </p>     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:1.0000pt solid rgb(0,0,0);  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       操作或叙述      </span>      <span>       <o:p>       </o:p>      </span>     </p>    </td>   </tr>   <tr>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:1.0000pt solid rgb(0,0,0);mso-border-left-alt:0.7500pt solid rgb(0,0,0);  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       A      </span>      <span>       <o:p>       </o:p>      </span>     </p>     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       Ⅰ.       <font face="宋体">        用       </font>      </span>      <span>       <img height="16.6667" src="http://service.cooco.net.cn/cooco_test_imgs/0404/23/07/05/0404230705040404094950.files/040423070504040409495022.wmf" width="42.2"/>      </span>      标准溶液标定醋酸溶液浓度      <span>       <o:p>       </o:p>      </span>     </p>     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       滴定时应始终注视滴定管中的液面      </span>      <span>       <o:p>       </o:p>      </span>     </p>    </td>   </tr>   <tr>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:1.0000pt solid rgb(0,0,0);mso-border-left-alt:0.7500pt solid rgb(0,0,0);  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       B      </span>      <span>       <o:p>       </o:p>      </span>     </p>     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       Ⅱ.       <font face="宋体">        用标定后的溶液配制不同浓度的醋酸溶液       </font>      </span>      <span>       <o:p>       </o:p>      </span>     </p>     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       应使用干燥的容量瓶      </span>      <span>       <o:p>       </o:p>      </span>     </p>    </td>   </tr>   <tr>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:1.0000pt solid rgb(0,0,0);mso-border-left-alt:0.7500pt solid rgb(0,0,0);  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       C      </span>      <span>       <o:p>       </o:p>      </span>     </p>     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       Ⅲ.       <font face="宋体">        测定步骤       </font>       <font face="Times New Roman">        Ⅱ       </font>       <font face="宋体">        中所得溶液的       </font>      </span>      <span>       <img height="18.7333" src="http://service.cooco.net.cn/cooco_test_imgs/0404/23/07/05/0404230705040404094950.files/040423070504040409495023.wmf" width="22.2667"/>      </span>      <o:p>      </o:p>     </p>     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       应在相同温度下测定      </span>      <span>       <o:p>       </o:p>      </span>     </p>    </td>   </tr>   <tr>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:1.0000pt solid rgb(0,0,0);mso-border-left-alt:0.7500pt solid rgb(0,0,0);  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       D      </span>      <span>       <o:p>       </o:p>      </span>     </p>     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       Ⅳ.       <font face="宋体">        计算不同浓度溶液中醋酸的电离度       </font>      </span>      <span>       <o:p>       </o:p>      </span>     </p>     <p>      <span>       <o:p>       </o:p>      </span>     </p>    </td>    <td style="padding:3.7500pt 6.0000pt 3.7500pt 6.0000pt ;border-left:none;mso-border-left-alt:none;  border-right:1.0000pt solid rgb(0,0,0);mso-border-right-alt:0.7500pt solid rgb(0,0,0);border-top:none;  mso-border-top-alt:0.7500pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);" valign="center">     <p>      <span>       计算式为      </span>      <span>       <img height="49.1333" src="http://service.cooco.net.cn/cooco_test_imgs/0404/23/07/05/0404230705040404094950.files/040423070504040409495024.wmf" width="150.133"/>      </span>      <o:p>      </o:p>     </p>    </td>   </tr>  </table>  <p>   <span>    A    <font face="宋体">     ．    </font>    <font face="Times New Roman">     A    </font>   </span>   <span>   </span>   <span>    B    <font face="宋体">     ．    </font>    <font face="Times New Roman">     B    </font>   </span>   <span>   </span>   <span>    C    <font face="宋体">     ．    </font>    <font face="Times New Roman">     C    </font>   </span>   <span>   </span>   <span>    D    <font face="宋体">     ．    </font>    <font face="Times New Roman">     D    </font>   </span>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <o:p>    </o:p>   </span>  </p>
+          </div>
+
+          <!-- 改版_v2 star-->
+          <div class="subjectOpera f-f0 f-unselect">
+            <div class="answerBtn f-btn viewBtn">查看答案</div>
+          </div>
+
+
+          <div class="subjectAction f-f0 f-unselect">
+            <div class="left f-ibm f-f0">
+              <!-- <div class="f-ibm f-btn viewBtn">查看答案</div> -->
+              <!-- <div class="f-ibm px1"></div> -->
+              <div class="label f-ibm">题型：选择题</div>
+              <div class="f-ibm px1"></div>
+              <div class="zsd f-toe label f-ibm">知识点：电离平衡</div>
+            </div>
+            <div class="right f-fr f-f0">
+              <!-- 下载试题 -->
+              <div class="dtdownBtn f-ibm f-btn">下载试题</div>
+              <!-- 复制试题 -->
+              <div class="dtcopyBtn f-ibm f-btn">复制试题</div>
+            </div>
+          </div>
+
+          <div class="answer">
+            <div class="answerTit">【答案】</div>
+            <div class="answerCt"><p>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    C   </span>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <font face="宋体">     【详解】    </font>    A    <font face="宋体">     ．中和滴定时眼睛应始终注视锥形瓶内溶液颜色的变化，    </font>    <font face="Times New Roman">     A    </font>    <font face="宋体">     错误；    </font>   </span>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    B    <font face="宋体">     ．配制不同浓度的醋酸溶液时，容量瓶不需要干燥，    </font>    <font face="Times New Roman">     B    </font>    <font face="宋体">     错误；    </font>   </span>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    C    <font face="宋体">     ．温度影响醋酸的电离平衡，因此测定步骤    </font>    <font face="Times New Roman">     Ⅰ    </font>    <font face="宋体">     中所得溶液的    </font>   </span>   <span>    <img height="18.7333" src="http://service.cooco.net.cn/cooco_test_imgs/0404/23/07/05/0404230705040404094950.files/040423070504040409495023.wmf" width="22.2667"/>   </span>   <span>    <font face="宋体">     时应在相同温度下测定，    </font>    C    <font face="宋体">     正确；    </font>   </span>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    D    <font face="宋体">     ．电离度是指弱电解质在溶液里达电离平衡时，已电离的电解质分子数占原来总分子数（包括已电离的和未电离的）的百分数，因此醋酸的电离度计算式为    </font>   </span>   <span>    <img height="46.9333" src="http://service.cooco.net.cn/cooco_test_imgs/0404/23/07/05/0404230705040404094950.files/0404230705040404094950133.wmf" width="153.667"/>   </span>   <span>    <font face="宋体">     ，    </font>    D    <font face="宋体">     错误；    </font>   </span>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <font face="宋体">     答案选    </font>    C    <font face="宋体">     。    </font>   </span>   <span>    <o:p>    </o:p>   </span>  </p>  <p>   <span>    <o:p>    </o:p>   </span>  </p></div>=
+          </div>
+        </div>
+        <!-- 单条题目 end-->
+
+        <!-- 考点梳理 -->
+
+        <div class="kdslGroup">
+          <div class="kd-titBox">
+            <div class="tit f-ibm">考点梳理:</div>
+            <div class="f-fr">
+              <div class="icon toggleBtn f-btn f-unselect"></div>
+            </div>
+          </div>
+          <div class="kd-detail">
+            <div class="kd-desc">
+              <span class="txt">根据可圈可点权威老师分析，试题“</span>
+              <span class="txt blue"></span>
+              <span class="txt">”主要考查你对</span>
+              <span class="txt blue">	强电解质、弱电解质	</span>
+              <span class="txt">等考点的理解。关于这些考点的“资料梳理”如下：</span>
+            </div>
+
+            <div class="kd-content showMask">
+              <!-- 考点内容 -->
+              <div class="left-column">
+<div class="subject nowidth"><div class="subject-header">◎ 强电解质、弱电解质的定义</div><div class="subject-list"><strong>强电解质：<br/></strong><br/>在水溶液里或熔融状态下，能全部电离的化合物。包括：强酸、强碱、大多数盐、活泼金属氧化物等；完全电离、不可逆、不存在电离平衡；电离方程式用“=”表示。 <br/><br/><strong>弱电解质：<br/></strong><br/>在水溶液里或熔融状态下，不能全部电离的化合物。包括：弱酸、弱碱、少数盐等；部分电离、可逆、存在电离平衡，电离方程式用“<img border="0" src="http://pro.cooco.net.cn/kn_imgs/secpic/201110/20111025161754001.gif"/>”表示。 <br/></div></div><div class="subject nowidth"><div class="subject-header">◎ 强电解质、弱电解质的知识扩展</div><div class="subject-list">(1)强电解质：在水溶液里或熔融状态下，能全部电离的化合物。包括：强酸、强碱、大多数盐、活泼金属氧化物等；完全电离、不可逆、不存在电离平衡；电离方程式用“=”表示。 <br/>(2)弱电解质：在水溶液里或熔融状态下，不能全部电离的化合物。包括：弱酸、弱碱、少数盐等；部分电离、可逆、存在电离平衡，电离方程式用“<img border="0" src="http://pro.cooco.net.cn/kn_imgs/secpic/201110/20111025161754001.gif"/>”表示。 <br/></div></div><div class="subject nowidth"><div class="subject-header">◎ 强电解质、弱电解质的知识对比</div><div class="subject-list"><p><strong>强电解质和弱电解质的比较:</strong></p>
+<p><img src="http://pro.cooco.net.cn/kn_imgs/knowlageEx/05/20140105/2014010511093072464297.png" style="WIDTH: 435px; HEIGHT: 418px; VERTICAL-ALIGN: middle"/><br/><img src="http://pro.cooco.net.cn/kn_imgs/knowlageEx/05/20140105/2014010511093084926020.png" style="WIDTH: 434px; HEIGHT: 230px; VERTICAL-ALIGN: middle"/></p></div></div><div class="subject nowidth"><div class="subject-header">◎ 强电解质、弱电解质的知识点拨</div><div class="subject-list"><p><strong>强弱电解质的判断依据：</strong></p>
+<p>?1．在相同浓度、相同温度下，与强电解质做导电性对比实验. <br/>2．浓度与pH的关系。如<img src="http://pro.cooco.net.cn/kn_imgs/knowlageEx/05/20131231/201312310015020342201.png" style="WIDTH: 196px; HEIGHT: 24px; VERTICAL-ALIGN: middle"/>溶液的pH&gt;1，则证明<img src="http://pro.cooco.net.cn/kn_imgs/knowlageEx/05/20131231/201312310015021281336.png" style="WIDTH: 82px; HEIGHT: 24px; VERTICAL-ALIGN: middle"/>是弱电解质。 <br/>3．测定对应盐溶液的酸碱性。如<img src="http://pro.cooco.net.cn/kn_imgs/knowlageEx/05/20131231/201312310015022211397.png" style="WIDTH: 91px; HEIGHT: 24px; VERTICAL-ALIGN: middle"/>溶液呈碱性，则证明醋酸是弱电解质。 <br/>4．稀释前后的pH变化与稀释倍数的关系。例如，将pH=2的酸溶液稀释1000倍，若pH&lt;5，则证明该酸为弱电解质；若pH=5，则证明该酸为强电解质。 <br/>5．采用实验证明电离平衡。如向醋酸溶液中滴人石蕊试液，溶液变红，再加入醋酸钠晶体，颜色变浅。</p></div></div><div class="subject nowidth"><div class="subject-header">◎ 强电解质、弱电解质的教学目标</div><div class="subject-list">1、了解强电解质、弱电解质的概念。<br/>2、掌握强电解质、弱电解质的本质区别。<br/>3、能正确书写强电解质、弱电解质的电离方程式。<br/>4、能综合运用类比、对比、归纳、总结的学习方法进行分析判断。</div></div>
+<div class="subject nowidth">
+<div class="subject-header">
+							◎ 强电解质、弱电解质的考试要求
+						</div>
+<div class="subject-list">
+							能力要求：掌握<br/>课时要求：20<br/>考试频率：常考<br/>分值比重：3<br/>
+</div>
+</div>
+</div>
+              <!-- 考点内容 end -->
+              <!-- 非vip遮罩 -->
+              <div class="kd-mask">
+                <div class="row f-tac">
+                  <a href="http://pro.cooco.net.cn/new_pay/?fromtype=22" target="_blank" class="goVipBtn">开通会员</a>
+                </div>
+                <p class="txt">登录并加入会员可无限制查看知识点解析</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 考点梳理 end-->
+      </div>
+
+      <!-- 推荐内容 -->
+      <div class="block recommendCT">
+        <div class="tit">类题推荐：</div>
+        <div class="subTit f-f0">
+          <div class="label f-ibm">电离平衡</div>
+        </div>
+
+        <!-- 推荐列表 -->
+        <div class="list">
+          <!-- 单条题目 -->
+
+          <div class="subjectGroup m-vipActions subjectGroup_v2" data-lesson="gzhx" data-id="7452"
+            data-coll="0" data-ltype="12" data-tname="多项选择" data-drafttype="add">
+            <div class="subjectTop f-f0 f-unselect">
+              <div class="label f-ibm">
+                <span class="txt">难度：</span>
+                <span class="starbox">
+
+                  <i class="icon icon_star active"></i>
+
+                  <i class="icon icon_star active"></i>
+
+                  <i class="icon icon_star active"></i>
+
+                  <i class="icon icon_star "></i>
+
+                  <i class="icon icon_star "></i>
+
+                </span>
+              </div>
+              <div class="f-ibm px1"></div>
+              <div class="label f-ibm">使用次数：130</div>
+              <div class="f-ibm px1"></div>
+              <div class="label f-ibm">更新时间：2021-07-17</div>
+              <div class="right f-fr f-f0">
+
+                <!-- <div class="btn f-ibm f-btn toggleBtn" data-id="7452" data-type="add">组卷/试题篮</div> -->
+                <div class="btn f-ibm f-btn draftBtn" data-type="add"
+                  layui-event="login" >加入组卷</div>
+
+              </div>
+            </div>
+            <div class="line"></div>
+            <div class="ct m-copy_ct" data-id="7452" data-lesson="gzhx">
+              <a href="http://gzhx.cooco.net.cn/testdetail/7452/" target="_blank">
+                <div class=" subjectNumber">1. </div>
+                 <div> <p><span>取<span>pH</span>值均等于<span>2</span>的盐酸和醒酸各<span>100ml</span>分别稀释<span>2</span>倍后，再分别加入<span>0.03g</span>锌粉，在相同条件下充分反应，有关叙述正确的是（<span>???? </span>）</span></p> <p><span>A.</span><span>醋酸与锌反应放出氢气多</span></p> <p><span>B.</span><span>盐酸和醋酸分别与锌反应放出的氢气一样多</span></p> <p><span>C.</span><span>醋酸与锌反应速率大</span></p> <p><span>D.</span><span>盐酸和醋分别与锌反应的速度一样大</span></p> </div>
+              </a>
+            </div>
+
+            <div class="subjectOpera subjectOpera_2">
+              <!-- <div class="f-ibm f-btn viewBtn" data-url="http://gzhx.cooco.net.cn/testdetail/7452/">查看答案</div> -->
+              <a class="f-ibm f-btn viewBtn" href="http://gzhx.cooco.net.cn/testdetail/7452/" data-url="http://gzhx.cooco.net.cn/testdetail/7452/">查看答案</a>
+            </div>
+            <div class="subjectAction f-f0 f-unselect">
+              <div class="left f-ibm f-f0">
+                <!-- <a class="f-ibm f-btn viewBtn" href="http://gzhx.cooco.net.cn/testdetail/7452/"
+                  target="_blank">查看答案</a> -->
+                <!-- <div class="f-ibm px1"></div> -->
+                <div class="label f-ibm">题型：多项选择</div>
+                <div class="f-ibm px1"></div>
+                <div class="zsd f-toe label f-ibm">知识点：电离平衡</div>
+              </div>
+              <div class="right f-fr f-f0">
+                <!-- <div class="f-ibm f-btn btn copyBtn"  layui-event="gopay" data-tip="开通VIP即可无限复制哦" >复制</div> -->
+                <div class="f-ibm f-btn btn copyBtn">复制</div>
+                <a class="btn f-ibm f-btn detailBtn" href="http://gzhx.cooco.net.cn/testdetail/7452/" target="_blank">试题详情</a>
+                <div class="btn f-ibm f-btn checkBtn" layui-event="login" >纠错</div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="subjectGroup m-vipActions subjectGroup_v2" data-lesson="gzhx" data-id="7591"
+            data-coll="0" data-ltype="1" data-tname="选择题" data-drafttype="add">
+            <div class="subjectTop f-f0 f-unselect">
+              <div class="label f-ibm">
+                <span class="txt">难度：</span>
+                <span class="starbox">
+
+                  <i class="icon icon_star active"></i>
+
+                  <i class="icon icon_star active"></i>
+
+                  <i class="icon icon_star active"></i>
+
+                  <i class="icon icon_star "></i>
+
+                  <i class="icon icon_star "></i>
+
+                </span>
+              </div>
+              <div class="f-ibm px1"></div>
+              <div class="label f-ibm">使用次数：109</div>
+              <div class="f-ibm px1"></div>
+              <div class="label f-ibm">更新时间：2021-07-19</div>
+              <div class="right f-fr f-f0">
+
+                <!-- <div class="btn f-ibm f-btn toggleBtn" data-id="7591" data-type="add">组卷/试题篮</div> -->
+                <div class="btn f-ibm f-btn draftBtn" data-type="add"
+                  layui-event="login" >加入组卷</div>
+
+              </div>
+            </div>
+            <div class="line"></div>
+            <div class="ct m-copy_ct" data-id="7591" data-lesson="gzhx">
+              <a href="http://gzhx.cooco.net.cn/testdetail/7591/" target="_blank">
+                <div class=" subjectNumber">1. </div>
+                 <div> <p><span>将</span><span>0.1mol?L</span><sup><span>－</span></sup><sup><span>1</span></sup><span>CH<sub>3</sub>COOH</span><span>溶液加水稀释或加入少量</span><span>CH<sub>3</sub>COONa</span><span>晶体时，都会引起（<span>??? </span>）</span></p> <p><span>A</span><span>．溶液的</span><span>pH</span><span>增加</span><span>???????? ??B</span><span>．</span><span>CH<sub>3</sub>COOH</span><span>电离度变大</span></p> <p><span>C</span><span>．溶液的导电能力减弱</span><span>??? ?D</span><span>．溶液中［</span><span>OH</span><sup><span>－</span></sup><span>］减少</span></p> </div>
+              </a>
+            </div>
+
+            <div class="subjectOpera subjectOpera_2">
+              <!-- <div class="f-ibm f-btn viewBtn" data-url="http://gzhx.cooco.net.cn/testdetail/7591/">查看答案</div> -->
+              <a class="f-ibm f-btn viewBtn" href="http://gzhx.cooco.net.cn/testdetail/7591/" data-url="http://gzhx.cooco.net.cn/testdetail/7591/">查看答案</a>
+            </div>
+            <div class="subjectAction f-f0 f-unselect">
+              <div class="left f-ibm f-f0">
+                <!-- <a class="f-ibm f-btn viewBtn" href="http://gzhx.cooco.net.cn/testdetail/7591/"
+                  target="_blank">查看答案</a> -->
+                <!-- <div class="f-ibm px1"></div> -->
+                <div class="label f-ibm">题型：选择题</div>
+                <div class="f-ibm px1"></div>
+                <div class="zsd f-toe label f-ibm">知识点：电离平衡</div>
+              </div>
+              <div class="right f-fr f-f0">
+                <!-- <div class="f-ibm f-btn btn copyBtn"  layui-event="gopay" data-tip="开通VIP即可无限复制哦" >复制</div> -->
+                <div class="f-ibm f-btn btn copyBtn">复制</div>
+                <a class="btn f-ibm f-btn detailBtn" href="http://gzhx.cooco.net.cn/testdetail/7591/" target="_blank">试题详情</a>
+                <div class="btn f-ibm f-btn checkBtn" layui-event="login" >纠错</div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="subjectGroup m-vipActions subjectGroup_v2" data-lesson="gzhx" data-id="7660"
+            data-coll="0" data-ltype="12" data-tname="多项选择" data-drafttype="add">
+            <div class="subjectTop f-f0 f-unselect">
+              <div class="label f-ibm">
+                <span class="txt">难度：</span>
+                <span class="starbox">
+
+                  <i class="icon icon_star active"></i>
+
+                  <i class="icon icon_star active"></i>
+
+                  <i class="icon icon_star active"></i>
+
+                  <i class="icon icon_star "></i>
+
+                  <i class="icon icon_star "></i>
+
+                </span>
+              </div>
+              <div class="f-ibm px1"></div>
+              <div class="label f-ibm">使用次数：114</div>
+              <div class="f-ibm px1"></div>
+              <div class="label f-ibm">更新时间：2021-07-20</div>
+              <div class="right f-fr f-f0">
+
+                <!-- <div class="btn f-ibm f-btn toggleBtn" data-id="7660" data-type="add">组卷/试题篮</div> -->
+                <div class="btn f-ibm f-btn draftBtn" data-type="add"
+                  layui-event="login" >加入组卷</div>
+
+              </div>
+            </div>
+            <div class="line"></div>
+            <div class="ct m-copy_ct" data-id="7660" data-lesson="gzhx">
+              <a href="http://gzhx.cooco.net.cn/testdetail/7660/" target="_blank">
+                <div class=" subjectNumber">1. </div>
+                 <div> <p><span>室温时，</span><span>0.01 mol</span><span>?</span><span>L</span><sup><span>－</span></sup><sup><span>1</span></sup><span>某一元弱酸的电离度为</span><span>1</span><span>％，则下列说法正确的是（<span>????? </span>）</span></p> <p><span>A</span><span>．上述弱酸溶液的</span><span>pH</span><span>＝</span><span>4</span></p> <p><span>B</span><span>．加入等体积</span><span>0.01 mol</span><span>?</span><span>L</span><sup><span>－</span></sup><sup><span>1</span></sup><span> NaOH</span><span>溶液后，所得溶液的</span><span>pH</span><span>＝</span><span>7</span></p> <p><span>C</span><span>．加入等体积</span><span>0.01 mol</span><span>?</span><span>L</span><sup><span>－</span></sup><sup><span>1</span></sup><span> NaOH</span><span>溶液后，所得溶液的</span><span>pH</span><span>＞</span><span>7</span></p> <p><span>D</span><span>．加入等体积</span><span>0.01 mol</span><span>?</span><span>L</span><sup><span>－</span></sup><sup><span>1</span></sup><span> NaOH</span><span>溶液后，所得溶液的</span><span>pH</span><span>＜</span><span>7</span></p> </div>
+              </a>
+            </div>
+
+            <div class="subjectOpera subjectOpera_2">
+              <!-- <div class="f-ibm f-btn viewBtn" data-url="http://gzhx.cooco.net.cn/testdetail/7660/">查看答案</div> -->
+              <a class="f-ibm f-btn viewBtn" href="http://gzhx.cooco.net.cn/testdetail/7660/" data-url="http://gzhx.cooco.net.cn/testdetail/7660/">查看答案</a>
+            </div>
+            <div class="subjectAction f-f0 f-unselect">
+              <div class="left f-ibm f-f0">
+                <!-- <a class="f-ibm f-btn viewBtn" href="http://gzhx.cooco.net.cn/testdetail/7660/"
+                  target="_blank">查看答案</a> -->
+                <!-- <div class="f-ibm px1"></div> -->
+                <div class="label f-ibm">题型：多项选择</div>
+                <div class="f-ibm px1"></div>
+                <div class="zsd f-toe label f-ibm">知识点：电离平衡</div>
+              </div>
+              <div class="right f-fr f-f0">
+                <!-- <div class="f-ibm f-btn btn copyBtn"  layui-event="gopay" data-tip="开通VIP即可无限复制哦" >复制</div> -->
+                <div class="f-ibm f-btn btn copyBtn">复制</div>
+                <a class="btn f-ibm f-btn detailBtn" href="http://gzhx.cooco.net.cn/testdetail/7660/" target="_blank">试题详情</a>
+                <div class="btn f-ibm f-btn checkBtn" layui-event="login" >纠错</div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="subjectGroup m-vipActions subjectGroup_v2" data-lesson="gzhx" data-id="7684"
+            data-coll="0" data-ltype="1" data-tname="选择题" data-drafttype="add">
+            <div class="subjectTop f-f0 f-unselect">
+              <div class="label f-ibm">
+                <span class="txt">难度：</span>
+                <span class="starbox">
+
+                  <i class="icon icon_star active"></i>
+
+                  <i class="icon icon_star active"></i>
+
+                  <i class="icon icon_star "></i>
+
+                  <i class="icon icon_star "></i>
+
+                  <i class="icon icon_star "></i>
+
+                </span>
+              </div>
+              <div class="f-ibm px1"></div>
+              <div class="label f-ibm">使用次数：177</div>
+              <div class="f-ibm px1"></div>
+              <div class="label f-ibm">更新时间：2009-03-14</div>
+              <div class="right f-fr f-f0">
+
+                <!-- <div class="btn f-ibm f-btn toggleBtn" data-id="7684" data-type="add">组卷/试题篮</div> -->
+                <div class="btn f-ibm f-btn draftBtn" data-type="add"
+                  layui-event="login" >加入组卷</div>
+
+              </div>
+            </div>
+            <div class="line"></div>
+            <div class="ct m-copy_ct" data-id="7684" data-lesson="gzhx">
+              <a href="http://gzhx.cooco.net.cn/testdetail/7684/" target="_blank">
+                <div class=" subjectNumber">1. </div>
+                 <div> <p><span>下列事实可证明氨水是弱碱的是（<span>???? </span>）</span></p> <p><span>A</span><span>．氨水能跟氯化亚铁溶液反应生成氢氧化亚铁</span></p> <p><span>B</span><span>．铵盐受热易分解</span></p> <p><span>C</span><span>．</span><span>0.1mol/L</span><span>氨水可以使酚酞试液变红</span></p> <p><span>D</span><span>．</span><span>0.1mol/L</span><span>氯化铵溶液的</span><span>pH</span><span>约为</span><span>5?????????????????????? </span></p> </div>
+              </a>
+            </div>
+
+            <div class="subjectOpera subjectOpera_2">
+              <!-- <div class="f-ibm f-btn viewBtn" data-url="http://gzhx.cooco.net.cn/testdetail/7684/">查看答案</div> -->
+              <a class="f-ibm f-btn viewBtn" href="http://gzhx.cooco.net.cn/testdetail/7684/" data-url="http://gzhx.cooco.net.cn/testdetail/7684/">查看答案</a>
+            </div>
+            <div class="subjectAction f-f0 f-unselect">
+              <div class="left f-ibm f-f0">
+                <!-- <a class="f-ibm f-btn viewBtn" href="http://gzhx.cooco.net.cn/testdetail/7684/"
+                  target="_blank">查看答案</a> -->
+                <!-- <div class="f-ibm px1"></div> -->
+                <div class="label f-ibm">题型：选择题</div>
+                <div class="f-ibm px1"></div>
+                <div class="zsd f-toe label f-ibm">知识点：电离平衡</div>
+              </div>
+              <div class="right f-fr f-f0">
+                <!-- <div class="f-ibm f-btn btn copyBtn"  layui-event="gopay" data-tip="开通VIP即可无限复制哦" >复制</div> -->
+                <div class="f-ibm f-btn btn copyBtn">复制</div>
+                <a class="btn f-ibm f-btn detailBtn" href="http://gzhx.cooco.net.cn/testdetail/7684/" target="_blank">试题详情</a>
+                <div class="btn f-ibm f-btn checkBtn" layui-event="login" >纠错</div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="subjectGroup m-vipActions subjectGroup_v2" data-lesson="gzhx" data-id="8101"
+            data-coll="0" data-ltype="1" data-tname="选择题" data-drafttype="add">
+            <div class="subjectTop f-f0 f-unselect">
+              <div class="label f-ibm">
+                <span class="txt">难度：</span>
+                <span class="starbox">
+
+                  <i class="icon icon_star active"></i>
+
+                  <i class="icon icon_star active"></i>
+
+                  <i class="icon icon_star active"></i>
+
+                  <i class="icon icon_star "></i>
+
+                  <i class="icon icon_star "></i>
+
+                </span>
+              </div>
+              <div class="f-ibm px1"></div>
+              <div class="label f-ibm">使用次数：133</div>
+              <div class="f-ibm px1"></div>
+              <div class="label f-ibm">更新时间：2009-03-14</div>
+              <div class="right f-fr f-f0">
+
+                <!-- <div class="btn f-ibm f-btn toggleBtn" data-id="8101" data-type="add">组卷/试题篮</div> -->
+                <div class="btn f-ibm f-btn draftBtn" data-type="add"
+                  layui-event="login" >加入组卷</div>
+
+              </div>
+            </div>
+            <div class="line"></div>
+            <div class="ct m-copy_ct" data-id="8101" data-lesson="gzhx">
+              <a href="http://gzhx.cooco.net.cn/testdetail/8101/" target="_blank">
+                <div class=" subjectNumber">1. </div>
+                 <div> <p><span>下列实验事实不能证明醋酸是弱酸的是</span><span>????????????????? </span><span>（</span><span>??? </span><span>）</span></p> <p><span>A</span><span>．常温下，测得醋酸钠溶液的</span><span>pH&gt;7</span></p> <p><span>B</span><span>．常温下，测得</span><span>0.1mol/L</span><span>醋酸溶液的</span><span>pH=4</span></p> <p><span>C</span><span>．常温下，将</span><span>pH=1</span><span>的醋酸溶液稀释</span><span>1000</span><span>倍，测得</span><span>pH&lt;4</span></p> <p><span>D</span><span>．常温下，将物质的量浓度相同的醋酸溶液与氢氧化钠溶液等体积混合后恰好中和</span></p> </div>
+              </a>
+            </div>
+
+            <div class="subjectOpera subjectOpera_2">
+              <!-- <div class="f-ibm f-btn viewBtn" data-url="http://gzhx.cooco.net.cn/testdetail/8101/">查看答案</div> -->
+              <a class="f-ibm f-btn viewBtn" href="http://gzhx.cooco.net.cn/testdetail/8101/" data-url="http://gzhx.cooco.net.cn/testdetail/8101/">查看答案</a>
+            </div>
+            <div class="subjectAction f-f0 f-unselect">
+              <div class="left f-ibm f-f0">
+                <!-- <a class="f-ibm f-btn viewBtn" href="http://gzhx.cooco.net.cn/testdetail/8101/"
+                  target="_blank">查看答案</a> -->
+                <!-- <div class="f-ibm px1"></div> -->
+                <div class="label f-ibm">题型：选择题</div>
+                <div class="f-ibm px1"></div>
+                <div class="zsd f-toe label f-ibm">知识点：电离平衡</div>
+              </div>
+              <div class="right f-fr f-f0">
+                <!-- <div class="f-ibm f-btn btn copyBtn"  layui-event="gopay" data-tip="开通VIP即可无限复制哦" >复制</div> -->
+                <div class="f-ibm f-btn btn copyBtn">复制</div>
+                <a class="btn f-ibm f-btn detailBtn" href="http://gzhx.cooco.net.cn/testdetail/8101/" target="_blank">试题详情</a>
+                <div class="btn f-ibm f-btn checkBtn" layui-event="login" >纠错</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 单条题目 end-->
+        </div>
+        <!-- 推荐列表 end-->
+      </div>
+      <!-- 推荐内容 end-->
+    </div>
+    <!-- 试卷内容 end-->
+    <!-- 试卷侧边栏 -->
+    <div class="rightCt f-ibt">
+      <!-- 功能按钮组 -->
+      <div class="newActionGroup subjectGroup dtSubjectGroup" data-lesson="gzhx" data-id="528310"
+        data-coll="0" data-ltype="1" data-tname="选择题" data-drafttype="add">
+        <!--
+        <div onclick="_targetPayFun(1)" class="download f-btn" data-url="http://pro.cooco.net.cn/pay_c1/?fromtype=1"
+          target="_blank">下载试题</div>
+         -->
+        <!-- 加入组卷 -->
+        <div class="btn f-ibm f-btn draftBtn" data-type="add"  layui-event="login"
+          >加入组卷</div>
+
+        <div class="other f-f0">
+
+          <!--
+          <div onclick="_targetPayFun(2)" class="ite f-ibm f-btn copyBtn" data-url="http://pro.cooco.net.cn/pay_c1/?fromtype=1" target="_blank">
+            <div class="icon icon_copy"></div>
+            <div class="txt">复制试题</div>
+          </div>
+           -->
+
+          <a class="ite f-ibm f-btn goBtn" href="http://pro.cooco.net.cn/new_make/gzhx/" target="_blank">
+            <div class="icon icon_shop"></div>
+            <div class="txt">进入组卷</div>
+          </a>
+
+
+          <div class="ite f-ibm f-btn downZsd" onclick="_targetPayFun(1)"
+            data-url="http://pro.cooco.net.cn/pay_c1/?fromtype=1" target="_blank">
+            <div class="icon icon_zsd"></div>
+            <div class="txt">下载知识点</div>
+          </div>
+
+
+        </div>
+      </div>
+      <!-- 功能按钮组 end-->
+      <!-- link -->
+      <!-- <div onclick="_targetPayFun(21)" class="bannerGroup f-btn" data-url="http://pro.cooco.net.cn/vip_pay/?fromtype=21" target="_blank"></div> -->
+      <a class="bannerGroup f-btn" href="http://pro.cooco.net.cn/vip_pay/?fromtype=21" target="_blank"></a>
+      <!-- link end-->
+      <!-- 使用过的试卷列表 -->
+      <div class="usedGroup commonGroup">
+        <div class="tit">使用过本题的试卷：</div>
+        <div class="list">
+          <a class="row f-btn f-toe" href="http://gzhx.cooco.net.cn/paper/1688521794/" target="_blank" title="2022年福建省高考真题化学试题含解析1">2022年福建省高考真题化学试题含解析1</a>
+        </div>
+      </div>
+      <!-- 使用过的试卷列表 end-->
+
+      <!-- newblock -->
+      <!-- <a href='http://www.jd100.com/xgao1/?c=vip182629' target='_blank' rel="nofollow"><img style="width: 100%; display: block;" src='https://img.jiandan100.cn/images/site/union/gaozhong/3008_250@300_20160714.jpg' /></a> -->
+      <!-- newblock end-->
+
+      <!-- 知识点 -->
+      <div class="zsdGroup commonGroup">
+        <div class="tit">知识点：</div>
+        <div class="list">
+          <a class="row f-btn">电离平衡</a>
+        </div>
+      </div>
+      <!-- 知识点 end-->
+
+      <!-- 试题点睛 -->
+      <!--      <div class="stdjGroup commonGroup">-->
+      <!--        <div class="tit">试题点睛：</div>-->
+      <!--        <div class="txt">本题考查的是</div>-->
+      <!--      </div>-->
+      <!-- 试题点睛 end-->
+
+      <!-- 版权提示 -->
+      <!-- 版权提示 -->
+<div class="m-ruleTips">
+  <div class="title">版权提示</div>
+  <div class="txt">
+    <p style="font-size: 15px;margin-bottom: 4px">该作品由: 用户<span style="text-decoration: underline;color: #1EA0FE;">孙建华</span>分享上传</p>
+    可圈可点是一个信息分享及获取的平台。不确保部分用户上传资料的来源及知识产权归属。如您发现相关资料侵犯您的合法权益，请联系
+    <a class="link" href="http://wpa.qq.com/msgrd?v=3&uin=69016415&site=qq&menu=yes" target="_blank">可圈可点</a>
+    ，我们核实后将及时进行处理。
+  </div>
+</div>
+<!-- 版权提示 end-->
+      <!-- 版权提示 end-->
+
+
+    </div>
+    <!-- 试卷侧边栏 end-->
+  </div>
+  <!-- 查看答案支付窗 -->
+</div>
+
+
+
+  <!-- 底部banner -->
+  <div class="m-vipFooter">
+    <div onclick="_targetPayFun(20)" data-url="http://pro.cooco.net.cn/vip_pay/?fromtype=20" target="_blank" class="ct gWidth f-f0tc">
+      <div class="txt f-ibm">终身vip限时199</div>
+      <div class="txt f-ibm">全站组卷·刷题终身免费使用</div>
+      <div class="jump f-btn f-ibm">立即抢购</div>
+    </div>
+  </div>
+  <!-- 底部banner end-->
+  <!-- 公共底部 -->
+  <!-- 公共底部 -->
+<div class="m-footer">
+  <div class="tct">
+    <div class="gWidth f-f0">
+      <a href="http://cooco.net.cn/" class="lCt f-ibt">
+        <div class="logoImg"></div>
+        <div class="txt">·在线智慧组卷</div>
+      </a>
+      <div class="vLine f-ibt"></div>
+      <div class="mCt f-ibt">
+        <div class="tit">网站简介</div>
+        <div class="txt">
+          可圈可点(cooco.net.cn)，依托于累计十多年、千万量级的初高中题库建成的在线智慧组卷系统，试卷涵盖全国初高中教材版本，试题质量高、更新快，深受广大中学教师喜爱。
+        </div>
+      </div>
+      <div class="rCt f-fr">
+        <!--<a href="http://wpa.qq.com/msgrd?v=3&uin=69016415&site=qq&menu=yes" target="_blank"
+          class="commitBtn">立即联系客服</a>-->
+        <div class="txt">商务合作QQ邮箱:3455265070@qq.com</div>
+        <div class="txt">友链交换QQ：1227621237</div>
+        <div class="txt">联系电话：0512-55170217</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyCT">
+    <div class="gWidth">
+      <div class="p1">Copyright ? CooCo.net.cn 2009. All Rights Reserved.</div>
+      <div class="p2 f-f0">
+        <a class="link f-ibm" href="https://beian.miit.gov.cn/" rel="nofollow">网站备案号：沪ICP备17000379号-4 上海广标信息科技有限公司 </a>
+        <div class="p2_line f-ibm"></div>
+        <a class="link f-ibm" target="_blank" href="http://pro.cooco.net.cn/site_in/">版权以及免责申明</a>
+        <div class="p2_line f-ibm"></div>
+        <a class="link f-ibm" href="http://pro.cooco.net.cn/site_about/" target="_blank">联系我们</a>
+        <div class="p2_line f-ibm"></div>
+        <a class="link f-ibm" href="http://pro.cooco.net.cn/user_paper_up/" target="_blank" rel="nofollow">上传试卷</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 公共底部 end-->
+  <!-- 公共底部 end-->
+
+  <!-- 右边工具栏 -->
+  <!-- 右边工具栏 -->
+<div class="m-sliderRightTool">
+  <div class="list">
+    <!-- 全站VIP -->
+    <div class="item vip">
+      <a href="http://pro.cooco.net.cn/vip_rights/" target="_blank">
+        <div class="icon"></div>
+        <div class="txt f-unselect">全站<br />VIP</div>
+      </a>
+      <div class="content">
+        <!-- <div onclick="_targetPayFun(13)" data-url="http://pro.cooco.net.cn/vip_pay/?fromtype=13" target="_blank" class="link"></div> -->
+        <a href="http://pro.cooco.net.cn/vip_pay/?fromtype=13" target="_blank" class="link"></a>
+      </div>
+    </div>
+    <!-- 全站VIP end-->
+    <div class="line white linevip"></div>
+    <!-- 试题篮 -->
+    <!-- <a href="http://pro.cooco.net.cn/lesson_make/gzhx/" target="_blank" class="item f-btn quesBlue">
+      <div class="icon"></div>
+      <div class="txt f-unselect">试<br />题<br />篮</div>
+    </a> -->
+    <div class="item f-btn quesBlue" layui-event="login">
+      <div class="icon"></div>
+      <div class="txt f-unselect">试<br />题<br />篮</div>
+      <div class="num">0</div>
+    </div>
+    <!-- 试题篮 end-->
+    <div class="line white linequesBlue"></div>
+    <!-- 使用指南 -->
+    <a href="http://pro.cooco.net.cn/site_help/" target="_blank" class="item guide">
+      <div class="icon"></div>
+      <div class="txt f-unselect">使用<br />说明</div>
+    </a>
+    <!-- 使用指南 end-->
+    <div class="line lineguide"></div>
+    <!-- 客服QQ -->
+<!--    <div class="item serve">-->
+<!--      <div class="icon"></div>-->
+<!--      <div class="txt f-unselect">客服</div>-->
+<!--      <div class="content">-->
+<!--        <div class="link">-->
+<!--          <div class="row f-f0">-->
+<!--            <div class="label f-ibm">在线咨询：</div>-->
+<!--            <a class="call f-ibm" href="http://wpa.qq.com/msgrd?v=3&uin=69016415&site=qq&menu=yes" target="_blank">联系客服QQ</a>-->
+<!--          </div>-->
+<!--          <div class="row f-f0">-->
+<!--            <div class="label f-ibm">工作时间：</div>-->
+<!--          </div>-->
+<!--          <div class="worktime">工作日：9:00-22:00<br />节假日：9:00-18:00</div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+    <!-- 客服QQ end-->
+    <div class="line lineserve"></div>
+    <!-- 群联盟 -->
+    <div class="item group">
+      <div class="icon"></div>
+      <div class="txt f-unselect">群联盟</div>
+      <div class="content">
+        <a href="http://pro.cooco.net.cn/qq_alliance/" target="_blank" class="link"></a>
+      </div>
+    </div>
+    <!-- 群联盟 end-->
+    <div class="line linegroup"></div>
+    <!-- 收藏 -->
+    <div class="item fav">
+      <div class="icon"></div>
+      <div class="txt f-unselect">收藏</div>
+      <div class="content">
+        <div class="link"></div>
+      </div>
+    </div>
+    <!-- 收藏 end-->
+    <div class="line linefav"></div>
+    <!-- 领福利 -->
+
+    <div class="item gif" layui-event="login">
+      <div class="icon"></div>
+      <div class="txt f-unselect">领福利</div>
+    </div>
+
+    <!-- 领福利 end-->
+    <div class="line linegif"></div>
+  </div>
+  <!-- 置顶 -->
+  <div class="item goTop f-btn" layui-event="scrollToTop">
+    <div class="icon"></div>
+  </div>
+  <!-- 置顶 end-->
+  <!-- 侧边组卷蓝 -->
+
+  <!-- 侧边组卷蓝 end-->
+</div>
+<!-- 右边工具栏 end-->
+  <!-- 右边工具栏 end-->
+  <!-- 左侧299入口 -->
+
+
+  <!-- 左侧299入口 end-->
+  <script src="/static/new_pay/js/jquery.min.js"></script>
+  <script src="/static/new_pay/lib/layui/layui.all.js"></script>
+
+<script src="/static/new_pay/lib/filesaver.js?v=23021415"></script>
+<script src="/static/new_pay/lib/jq-wordexport.js?v=23021415"></script>
+
+  <script src="/static/new_pay/js/main.js?v=23021415"></script>
+  <script src="/static/new_pay/js/draft_socket.js?v=23021415"></script>
+
+<script src="/static/web_site/js/tj.js"></script>
+<script src="/static/exams/js/main_draft.js?v=23021415"></script>
+<!-- <script src="/static/web_site/js/lessonmain.js?v=23021415"></script> -->
+<script src="/static/new_pay/lib/qrcode.min.js?v=23021415"></script>
+<script src="/static/new_pay/lib/clipboard.js?v=23021415"></script>
+<script src="/static/web_site/js/lessonmain_v3.js?v=23021415"></script>
+<script src="/static/web_site/js/lessontestnew.js?v=23021415"></script>
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?af1438ed6d5ed0a606e2b3403f7d1fdb";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+</body>
+
+</html>
+

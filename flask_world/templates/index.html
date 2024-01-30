@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>信息填写界面</title>
+</head>
+<body>
+    <div style="text-align:center">
+        <h2>表格信息查询</h2>
+        <form action="/api" method="post">
+            表格token:<input type="input" style="width:200px" name="sheet_token"/>
+            <input type="submit" name="提交"/>
+        </form>
+        <h2>文件上传</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            文件上传：<input type="file" name="image" accept=".png, .jpg, .jpeg, .gif" />
+            <input type="submit" value="提交" />
+        </form>
+    </div>
+</body>
+</html>

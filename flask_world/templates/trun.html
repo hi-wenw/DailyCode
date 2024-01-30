@@ -1,0 +1,21 @@
+<!-- trun.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>result table name</h1>
+    <p>{{ data | safe }}</p>
+    <form action="/trun" method="post">
+        表格token:<textarea name="sheet_token" style="width:200px" rows="5"></textarea>
+        <input type="submit" name="提交"/>
+    </form>
+    <!-- 添加返回按钮 -->
+    <a href="/back">Go Back</a>
+  </body>
+</html>

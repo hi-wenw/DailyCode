@@ -1,0 +1,835 @@
+[2023/10/08 08:11:09 GMT+0800] [INFO] ===============================================
+[2023/10/08 08:11:09 GMT+0800] [INFO] ===============================================
+[2023/10/08 08:11:09 GMT+0800] [INFO] ===============================================
+[2023/10/08 08:11:09 GMT+0800] [INFO] Job-level agency is dgc_agency, Workspace-level agency is dgc_agency, Execute job use agency dgc_agency, job id is FF068943C18A476CB57626503F84097Bw1JDwHnR
+[2023/10/08 08:11:09 GMT+0800] [INFO] prepare to execute SQL:-- -- 建表语句
+-- DROP TABLE if exists yishou_daily.ads_user_exposure_suppress_detail;
+-- create external table if not exists yishou_daily.ads_user_exposure_suppress_detail (
+--     user_id bigint comment '用户id'
+--     , goods_no bigint comment '商品货号'
+--     , exposure_num bigint comment '近60天的曝光次数'
+--     , is_add_cart_supply bigint comment '是否加购的供应商（1：加购； 0：没有加购）'
+-- ) comment '用户曝光打压明细表'
+-- STORED AS ORC LOCATION 'obs://yishou-bigdata/yishou_daily.db/ads_user_exposure_suppress_detail'
+-- ;
+    -- 商品池子（曝光打压商品 与 近8期（包含当期）上架过专场的商品）(是否特价、现货折扣)
+    -- 其中 dscnt_price_spot 大于 0 为现货折扣，其中 goods_type = 1为特价，所以如果满足其中一个，那这个商品就是折扣状态
+    -- is_discount： 1是折扣， 0是不折扣
+-- create table goods_pool_table as
+insert overwrite table goods_pool_table
+select
+        goods_id
+        , goods_no
+        , add_time
+        , shoppe_discount
+        , dscnt_price_spot
+        , goods_type
+        , if(dscnt_price_spot > 0 or goods_type = 1, 1, 0) is_discount
+        , row_number() over(partition by goods_no order by add_time desc) as row_number_id
+    from yishou_data.dim_goods_id_info_hour
+    where to_char(add_time, 'yyyymmdd') >= TO_CHAR(DATEADD(to_date(CAST(UNIX_TIMESTAMP(cast(20231008 as string), 'yyyyMMdd') as TIMESTAMP)),-7,"dd"),"yyyymmdd")
+    having row_number_id = 1
+;
+[2023/10/08 08:11:09 GMT+0800] [INFO] dli.sql.badRecordsPath=obs://dlf-log-0ba6e278cc80f3562f48c00242b9c5d8/429bc7103cd04b0c97d69038cd67f872/ads_user_exposure_suppress_曝光打压/2023-10-08_08_00_00.000/ads_user_exposure_suppress/dli.badRecords
+[2023/10/08 08:11:09 GMT+0800] [INFO] submit dli sql job with Service-Transaction-Id: 2d44b09c-5405-4a13-9d7c-36cd71f9e52c
+[2023/10/08 08:11:09 GMT+0800] [INFO] submit dli sql job to queue: big_queue2
+[2023/10/08 08:11:10 GMT+0800] [INFO] DLI job id is:bc6a1f55-8528-495f-9827-3abebdc5aeae
+[2023/10/08 08:11:10 GMT+0800] [INFO] Spark UI path of DLI SQL Job [ads_user_exposure_suppress] is [https://console.huaweicloud.com/dli/web/0ba6e278cc80f3562f48c00242b9c5d8/sql/bc6a1f55-8528-495f-9827-3abebdc5aeae/sparkui].
+[2023/10/08 08:11:10 GMT+0800] [INFO] submit job success. Waiting for job execution to complete...
+[2023/10/08 08:15:10 GMT+0800] [INFO] DLI sql execute success, number of scanned data: 131906370, number of results: 202899
+[2023/10/08 08:15:10 GMT+0800] [INFO] prepare to execute SQL:-- create table user_add_cart_supply_table as
+INSERT OVERWRITE TABLE user_add_cart_supply_table
+select
+        main_table.user_id
+        , goods_id_table.supply_id
+    from yishou_data.dwd_app_goods_add_cart_view as main_table
+
+    left join yishou_data.dim_goods_id_info_hour as goods_id_table
+    on main_table.goods_id = goods_id_table.goods_id
+
+    where
+        main_table.dt between
+            TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -90, "dd"),"yyyymmdd")
+            and
+            TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+
+    group by main_table.user_id, goods_id_table.supply_id
+;
+[2023/10/08 08:15:10 GMT+0800] [INFO] dli.sql.badRecordsPath=obs://dlf-log-0ba6e278cc80f3562f48c00242b9c5d8/429bc7103cd04b0c97d69038cd67f872/ads_user_exposure_suppress_曝光打压/2023-10-08_08_00_00.000/ads_user_exposure_suppress/dli.badRecords
+[2023/10/08 08:15:10 GMT+0800] [INFO] submit dli sql job with Service-Transaction-Id: 275ceed5-c7b6-4a07-adb4-033dc6e4a715
+[2023/10/08 08:15:10 GMT+0800] [INFO] submit dli sql job to queue: big_queue2
+[2023/10/08 08:15:12 GMT+0800] [INFO] DLI job id is:8126d75e-e8d2-404d-aa65-160671376e88
+[2023/10/08 08:15:12 GMT+0800] [INFO] Spark UI path of DLI SQL Job [ads_user_exposure_suppress] is [https://console.huaweicloud.com/dli/web/0ba6e278cc80f3562f48c00242b9c5d8/sql/8126d75e-e8d2-404d-aa65-160671376e88/sparkui].
+[2023/10/08 08:15:12 GMT+0800] [INFO] submit job success. Waiting for job execution to complete...
+[2023/10/08 08:19:13 GMT+0800] [INFO] DLI sql execute success, number of scanned data: 0, number of results: 0
+[2023/10/08 08:19:13 GMT+0800] [INFO] prepare to execute SQL:-- 跑数脚本
+
+with
+
+-- goods_pool_table as (
+--     -- 商品池子（曝光打压商品 与 近8期（包含当期）上架过专场的商品）(是否特价、现货折扣)
+--     -- 其中 dscnt_price_spot 大于 0 为现货折扣，其中 goods_type = 1为特价，所以如果满足其中一个，那这个商品就是折扣状态
+--     -- is_discount： 1是折扣， 0是不折扣
+--     select
+--         goods_id
+--         , goods_no
+--         , add_time
+--         , shoppe_discount
+--         , dscnt_price_spot
+--         , goods_type
+--         , if(dscnt_price_spot > 0 or goods_type = 1, 1, 0) is_discount
+--         , row_number() over(partition by goods_no order by add_time desc) as row_number_id
+--     from yishou_data.dim_goods_id_info_hour
+--     where to_char(add_time, 'yyyymmdd') >= TO_CHAR(DATEADD(to_date(CAST(UNIX_TIMESTAMP(cast(20231008 as string), 'yyyyMMdd') as TIMESTAMP)),-7,"dd"),"yyyymmdd")
+--     having row_number_id = 1
+-- ),
+
+-- user_add_cart_supply_table as (
+--     -- 近90天，用户加购过的商家（供应商）
+--     select
+--         main_table.user_id
+--         , goods_id_table.supply_id
+--     from yishou_data.dwd_app_goods_add_cart_view as main_table
+
+--     left join yishou_data.dim_goods_id_info_hour as goods_id_table
+--     on main_table.goods_id = goods_id_table.goods_id
+
+--     where
+--         main_table.dt between
+--             TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -90, "dd"),"yyyymmdd")
+--             and
+--             TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+
+--     group by main_table.user_id, goods_id_table.supply_id
+-- ),
+
+goods_1_table as (
+
+    -- 当近60天 + 当天（曝光>=1，并且点击=0）
+    -- 近90天，用户没有加购过的商家
+    -- 现在这个商品不是折扣状态（is_discount = 0）
+    select
+        exposure_click_table.user_id
+        , exposure_click_table.goods_no
+        , user_add_cart_supply_table.supply_id
+        , goods_pool_table.is_discount
+    from (
+        select
+            exposure_table.user_id
+            , exposure_table.goods_no
+        from (
+            select
+                user_id
+                , goods_no
+                , count(*) as exposure_num
+            from (
+                select
+                    user_id
+                    , goods_id
+                from yishou_data.dwd_app_goods_exposure_view
+                where
+                    coalesce(user_id, '') != ''
+                    and coalesce(goods_id, '') != ''
+                    and dt between
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+                        and
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+
+                union all
+
+                select
+                    user_id
+                    , goods_id
+                from yishou_data.dwd_h5_goods_exposure_view
+                where
+                    coalesce(user_id, '') != ''
+                    and coalesce(goods_id, '') != ''
+                    and dt between
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+                        and
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+            ) as main_table
+
+            left join (
+                select
+                    goods_id
+                    , goods_no
+                    , if(dscnt_price_spot > 0 or goods_type = 1, 1, 0) is_discount
+                from yishou_data.dim_goods_id_info_hour
+            ) as goods_id_table
+            on main_table.goods_id = goods_id_table.goods_id
+
+            group by user_id, goods_no
+
+        ) as exposure_table
+
+        left join (
+            select
+                user_id
+                , goods_no
+                , count(*) as click_num
+            from (
+                select
+                    user_id
+                    , goods_id
+                from yishou_data.dwd_app_goods_click_view
+                where
+                    coalesce(user_id, '') != ''
+                    and coalesce(goods_id, '') != ''
+                    and dt between
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+                        and
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+
+                union all
+
+                select
+                    user_id
+                    , goods_id
+                from yishou_data.dwd_h5_goods_click_view
+                where
+                    coalesce(user_id, '') != ''
+                    and coalesce(goods_id, '') != ''
+                    and dt between
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+                        and
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+            ) as main_table
+
+            left join (
+                select
+                    goods_id
+                    , goods_no
+                    , if(dscnt_price_spot > 0 or goods_type = 1, 1, 0) is_discount
+                from yishou_data.dim_goods_id_info_hour
+            ) as goods_id_table
+            on main_table.goods_id = goods_id_table.goods_id
+
+            where goods_id_table.is_discount = 1
+
+            group by user_id, goods_no
+        ) as click_table
+        on
+            exposure_table.user_id = click_table.user_id
+            and exposure_table.goods_no = click_table.goods_no
+
+        where
+            exposure_table.exposure_num >= 1
+            and coalesce(click_table.click_num, 0) = 0
+    ) as exposure_click_table
+
+    left join yishou_data.dim_goods_no_info_hour as goods_no_table
+    on exposure_click_table.goods_no = goods_no_table.goods_no
+
+    left join user_add_cart_supply_table
+    on
+        exposure_click_table.user_id = user_add_cart_supply_table.user_id
+        and goods_no_table.supply_id = user_add_cart_supply_table.supply_id
+
+    left join goods_pool_table
+    on exposure_click_table.goods_no = goods_pool_table.goods_no
+
+    where
+        user_add_cart_supply_table.supply_id is null
+        and goods_pool_table.is_discount = 0
+
+),
+
+goods_2_table as (
+
+    -- 当近60天 + 当天，求出那个时候为折扣状态的商品（曝光>=1，并且点击=0）
+    -- 近90天，用户没有加购过的商家
+    -- 现在这个商品是折扣状态（is_discount = 1）
+    select
+        exposure_click_table.user_id
+        , exposure_click_table.goods_no
+        , user_add_cart_supply_table.supply_id
+        , goods_pool_table.is_discount
+    from (
+        select
+            exposure_table.user_id
+            , exposure_table.goods_no
+        from (
+            select
+                user_id
+                , goods_no
+                , count(*) as exposure_num
+            from (
+                select
+                    user_id
+                    , goods_id
+                from yishou_data.dwd_app_goods_exposure_view
+                where
+                    coalesce(user_id, '') != ''
+                    and coalesce(goods_id, '') != ''
+                    and dt between
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+                        and
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+
+                union all
+
+                select
+                    user_id
+                    , goods_id
+                from yishou_data.dwd_h5_goods_exposure_view
+                where
+                    coalesce(user_id, '') != ''
+                    and coalesce(goods_id, '') != ''
+                    and dt between
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+                        and
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+            ) as main_table
+
+            left join (
+                select
+                    goods_id
+                    , goods_no
+                    , if(dscnt_price_spot > 0 or goods_type = 1, 1, 0) is_discount
+                from yishou_data.dim_goods_id_info_hour
+            ) as goods_id_table
+            on main_table.goods_id = goods_id_table.goods_id
+
+            where goods_id_table.is_discount = 1
+
+            group by user_id, goods_no
+        ) as exposure_table
+
+        left join (
+            select
+                user_id
+                , goods_no
+                , count(*) as click_num
+            from (
+                select
+                    user_id
+                    , goods_id
+                from yishou_data.dwd_app_goods_click_view
+                where
+                    coalesce(user_id, '') != ''
+                    and coalesce(goods_id, '') != ''
+                    and dt between
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+                        and
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+
+                union all
+
+                select
+                    user_id
+                    , goods_id
+                from yishou_data.dwd_h5_goods_click_view
+                where
+                    coalesce(user_id, '') != ''
+                    and coalesce(goods_id, '') != ''
+                    and dt between
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+                        and
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+            ) as main_table
+
+            left join (
+                select
+                    goods_id
+                    , goods_no
+                    , if(dscnt_price_spot > 0 or goods_type = 1, 1, 0) is_discount
+                from yishou_data.dim_goods_id_info_hour
+            ) as goods_id_table
+            on main_table.goods_id = goods_id_table.goods_id
+
+            where goods_id_table.is_discount = 1
+
+            group by user_id, goods_no
+        ) as click_table
+        on
+            exposure_table.user_id = click_table.user_id
+            and exposure_table.goods_no = click_table.goods_no
+
+        where
+            exposure_table.exposure_num >= 1
+            and coalesce(click_table.click_num, 0) = 0
+    ) as exposure_click_table
+
+    left join yishou_data.dim_goods_no_info_hour as goods_no_table
+    on exposure_click_table.goods_no = goods_no_table.goods_no
+
+    left join user_add_cart_supply_table
+    on
+        exposure_click_table.user_id = user_add_cart_supply_table.user_id
+        and goods_no_table.supply_id = user_add_cart_supply_table.supply_id
+
+    left join goods_pool_table
+    on exposure_click_table.goods_no = goods_pool_table.goods_no
+
+    where
+        user_add_cart_supply_table.supply_id is null
+        and goods_pool_table.is_discount = 1
+
+),
+
+
+goods_3_table as (
+
+    -- 当近60天 + 当天（曝光>=2，并且点击=0）
+    -- 近90天，用户加购过的商家
+    -- 现在这个商品不是折扣状态（is_discount = 0）
+    select
+        exposure_click_table.user_id
+        , exposure_click_table.goods_no
+        , user_add_cart_supply_table.supply_id
+        , goods_pool_table.is_discount
+    from (
+        select
+            exposure_table.user_id
+            , exposure_table.goods_no
+        from (
+            select
+                user_id
+                , goods_no
+                , count(*) as exposure_num
+            from (
+                select
+                    user_id
+                    , goods_id
+                from yishou_data.dwd_app_goods_exposure_view
+                where
+                    coalesce(user_id, '') != ''
+                    and coalesce(goods_id, '') != ''
+                    and dt between
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+                        and
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+
+                union all
+
+                select
+                    user_id
+                    , goods_id
+                from yishou_data.dwd_h5_goods_exposure_view
+                where
+                    coalesce(user_id, '') != ''
+                    and coalesce(goods_id, '') != ''
+                    and dt between
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+                        and
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+            ) as main_table
+
+            left join (
+                select
+                    goods_id
+                    , goods_no
+                    , if(dscnt_price_spot > 0 or goods_type = 1, 1, 0) is_discount
+                from yishou_data.dim_goods_id_info_hour
+            ) as goods_id_table
+            on main_table.goods_id = goods_id_table.goods_id
+
+            group by user_id, goods_no
+
+        ) as exposure_table
+
+        left join (
+            select
+                user_id
+                , goods_no
+                , count(*) as click_num
+            from (
+                select
+                    user_id
+                    , goods_id
+                from yishou_data.dwd_app_goods_click_view
+                where
+                    coalesce(user_id, '') != ''
+                    and coalesce(goods_id, '') != ''
+                    and dt between
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+                        and
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+
+                union all
+
+                select
+                    user_id
+                    , goods_id
+                from yishou_data.dwd_h5_goods_click_view
+                where
+                    coalesce(user_id, '') != ''
+                    and coalesce(goods_id, '') != ''
+                    and dt between
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+                        and
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+            ) as main_table
+
+            left join (
+                select
+                    goods_id
+                    , goods_no
+                    , if(dscnt_price_spot > 0 or goods_type = 1, 1, 0) is_discount
+                from yishou_data.dim_goods_id_info_hour
+            ) as goods_id_table
+            on main_table.goods_id = goods_id_table.goods_id
+
+            where goods_id_table.is_discount = 1
+
+            group by user_id, goods_no
+        ) as click_table
+        on
+            exposure_table.user_id = click_table.user_id
+            and exposure_table.goods_no = click_table.goods_no
+
+        where
+            exposure_table.exposure_num >= 2
+            and coalesce(click_table.click_num, 0) = 0
+    ) as exposure_click_table
+
+    left join yishou_data.dim_goods_no_info_hour as goods_no_table
+    on exposure_click_table.goods_no = goods_no_table.goods_no
+
+    left join user_add_cart_supply_table
+    on
+        exposure_click_table.user_id = user_add_cart_supply_table.user_id
+        and goods_no_table.supply_id = user_add_cart_supply_table.supply_id
+
+    left join goods_pool_table
+    on exposure_click_table.goods_no = goods_pool_table.goods_no
+
+    where
+        user_add_cart_supply_table.supply_id is not null
+        and goods_pool_table.is_discount = 0
+
+),
+
+goods_4_table as (
+
+    -- 当近60天 + 当天，求出那个时候为折扣状态的商品（曝光>=1，并且点击=0）
+    -- 近90天，用户有加购过的商家
+    -- 现在这个商品是折扣状态（is_discount = 1）
+    select
+        exposure_click_table.user_id
+        , exposure_click_table.goods_no
+        , user_add_cart_supply_table.supply_id
+        , goods_pool_table.is_discount
+    from (
+        select
+            exposure_table.user_id
+            , exposure_table.goods_no
+        from (
+            select
+                user_id
+                , goods_no
+                , count(*) as exposure_num
+            from (
+                select
+                    user_id
+                    , goods_id
+                from yishou_data.dwd_app_goods_exposure_view
+                where
+                    coalesce(user_id, '') != ''
+                    and coalesce(goods_id, '') != ''
+                    and dt between
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+                        and
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+
+                union all
+
+                select
+                    user_id
+                    , goods_id
+                from yishou_data.dwd_h5_goods_exposure_view
+                where
+                    coalesce(user_id, '') != ''
+                    and coalesce(goods_id, '') != ''
+                    and dt between
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+                        and
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+            ) as main_table
+
+            left join (
+                select
+                    goods_id
+                    , goods_no
+                    , if(dscnt_price_spot > 0 or goods_type = 1, 1, 0) is_discount
+                from yishou_data.dim_goods_id_info_hour
+            ) as goods_id_table
+            on main_table.goods_id = goods_id_table.goods_id
+
+            where goods_id_table.is_discount = 1
+
+            group by user_id, goods_no
+        ) as exposure_table
+
+        left join (
+            select
+                user_id
+                , goods_no
+                , count(*) as click_num
+            from (
+                select
+                    user_id
+                    , goods_id
+                from yishou_data.dwd_app_goods_click_view
+                where
+                    coalesce(user_id, '') != ''
+                    and coalesce(goods_id, '') != ''
+                    and dt between
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+                        and
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+
+                union all
+
+                select
+                    user_id
+                    , goods_id
+                from yishou_data.dwd_h5_goods_click_view
+                where
+                    coalesce(user_id, '') != ''
+                    and coalesce(goods_id, '') != ''
+                    and dt between
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+                        and
+                        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+            ) as main_table
+
+            left join (
+                select
+                    goods_id
+                    , goods_no
+                    , if(dscnt_price_spot > 0 or goods_type = 1, 1, 0) is_discount
+                from yishou_data.dim_goods_id_info_hour
+            ) as goods_id_table
+            on main_table.goods_id = goods_id_table.goods_id
+
+            where goods_id_table.is_discount = 1
+
+            group by user_id, goods_no
+        ) as click_table
+        on
+            exposure_table.user_id = click_table.user_id
+            and exposure_table.goods_no = click_table.goods_no
+
+        where
+            exposure_table.exposure_num >= 1
+            and coalesce(click_table.click_num, 0) = 0
+    ) as exposure_click_table
+
+    left join yishou_data.dim_goods_no_info_hour as goods_no_table
+    on exposure_click_table.goods_no = goods_no_table.goods_no
+
+    left join user_add_cart_supply_table
+    on
+        exposure_click_table.user_id = user_add_cart_supply_table.user_id
+        and goods_no_table.supply_id = user_add_cart_supply_table.supply_id
+
+    left join goods_pool_table
+    on exposure_click_table.goods_no = goods_pool_table.goods_no
+
+    where
+        user_add_cart_supply_table.supply_id is not null
+        and goods_pool_table.is_discount = 1
+
+),
+
+
+goods_5_table as (
+    -- 近60天，点击超过2次，但是未收藏，未加购的商品
+    select
+        user_id
+        , goods_no
+        , sum(click_pv) as click_num
+        , sum(add_cart_pv) as add_cart_num
+        , sum(collect_num) as collect_num
+    from yishou_data.dws_user_goods_action_statistics_hour
+    where dt between
+        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+        and
+        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+    group by user_id, goods_no
+    having click_num >= 2 and (add_cart_num + collect_num) = 0
+),
+
+
+goods_6_table as (
+    -- 近60天，购买过该商品（只要付过款就算，不管有没有取消）
+    select
+        user_id
+        , goods_no
+        , sum(buy_num) as buy_num
+    from yishou_data.dws_user_goods_action_statistics_hour
+    where dt between
+        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+        and
+        TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+    group by user_id, goods_no
+    having buy_num > 0
+),
+
+suppress_goods_sort_table as (
+
+    select
+        main_table.user_id
+        , main_table.goods_no
+        , exposure_num_table.exposure_num
+        , if(user_add_cart_supply_table.supply_id is null, 0, 1) as is_add_cart_supply
+    from (
+        select
+            user_id
+            , goods_no
+        from (
+            select user_id, goods_no from goods_1_table
+            union
+            select user_id, goods_no from goods_2_table
+            union
+            select user_id, goods_no from goods_3_table
+            union
+            select user_id, goods_no from goods_4_table
+            union
+            select user_id, goods_no from goods_5_table
+            union
+            select user_id, goods_no from goods_6_table
+        )
+        group by user_id, goods_no
+    ) as main_table
+
+    left join goods_pool_table
+    on main_table.goods_no = goods_pool_table.goods_no
+
+    left join (
+        select
+            user_id
+            , goods_no
+            , sum(exposure_pv) as exposure_num
+        from yishou_data.dws_user_goods_action_statistics_hour
+        where dt between
+            TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), -60, "dd"),"yyyymmdd")
+            and
+            TO_CHAR(DATEADD(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)), 0, "dd"),"yyyymmdd")
+        group by user_id, goods_no
+        having exposure_num > 0
+    ) as exposure_num_table
+    on
+        main_table.user_id = exposure_num_table.user_id
+        and main_table.goods_no = exposure_num_table.goods_no
+
+    left join yishou_data.dim_goods_no_info_hour as goods_no_table
+    on main_table.goods_no = goods_no_table.goods_no
+
+    left join user_add_cart_supply_table
+    on
+        main_table.user_id = user_add_cart_supply_table.user_id
+        and goods_no_table.supply_id = user_add_cart_supply_table.supply_id
+
+    where
+        main_table.user_id is not null
+        and main_table.goods_no is not null
+        and goods_pool_table.goods_no is not null
+
+)
+
+insert overwrite table yishou_daily.ads_user_exposure_suppress_detail
+select
+    user_id
+    , goods_no
+    , exposure_num
+    , is_add_cart_supply
+from suppress_goods_sort_table
+DISTRIBUTE BY floor(rand()*100)
+;
+[2023/10/08 08:19:13 GMT+0800] [INFO] dli.sql.badRecordsPath=obs://dlf-log-0ba6e278cc80f3562f48c00242b9c5d8/429bc7103cd04b0c97d69038cd67f872/ads_user_exposure_suppress_曝光打压/2023-10-08_08_00_00.000/ads_user_exposure_suppress/dli.badRecords
+[2023/10/08 08:19:13 GMT+0800] [INFO] submit dli sql job with Service-Transaction-Id: 4575519c-8207-4842-b529-c03812d83d11
+[2023/10/08 08:19:13 GMT+0800] [INFO] submit dli sql job to queue: big_queue2
+[2023/10/08 08:19:13 GMT+0800] [INFO] DLI job id is:4ed86c78-2bba-4c87-bb98-e62702bbcf9c
+[2023/10/08 08:19:13 GMT+0800] [INFO] Spark UI path of DLI SQL Job [ads_user_exposure_suppress] is [https://console.huaweicloud.com/dli/web/0ba6e278cc80f3562f48c00242b9c5d8/sql/4ed86c78-2bba-4c87-bb98-e62702bbcf9c/sparkui].
+[2023/10/08 08:19:13 GMT+0800] [INFO] submit job success. Waiting for job execution to complete...
+[2023/10/08 09:58:40 GMT+0800] [INFO] DLI sql execute success, number of scanned data: 0, number of results: 0
+[2023/10/08 09:58:40 GMT+0800] [INFO] prepare to execute SQL:-- ##### 全部商品
+
+-- -- 建表语句
+-- DROP TABLE if exists yishou_daily.ads_user_exposure_suppress_fresh;
+-- create external table if not exists yishou_daily.ads_user_exposure_suppress_fresh (
+--     user_id bigint comment '用户id'
+--     , goods_no string comment '商品货号'
+-- ) comment '用户曝光打压-新款频道'
+-- PARTITIONED BY (ht STRING COMMENT '小时分区（yyyyMMddHH）')
+-- STORED AS ORC LOCATION 'obs://yishou-bigdata/yishou_daily.db/ads_user_exposure_suppress_fresh'
+-- ;
+
+-- 跑数脚本
+insert overwrite table yishou_daily.ads_user_exposure_suppress_fresh partition(ht)
+select
+    user_id
+    , concat_ws(',', collect_list(goods_no)) as goods_no
+    , substr(20231008080000, 1, 10) as ht
+from (
+    select
+        main_table.user_id
+        , main_table.goods_no
+        , main_table.exposure_num
+        , main_table.is_add_cart_supply
+        , row_number() over(partition by main_table.user_id order by main_table.exposure_num desc, main_table.is_add_cart_supply asc, main_table.goods_no asc) as row_number_id
+    from yishou_daily.ads_user_exposure_suppress_detail as main_table
+
+    left join (
+        select
+            goods_no
+            , if(to_char(first_up_new_time, 'yyyymmdd') = TO_CHAR(to_date(CAST(unix_timestamp(cast(20231008080000 as string), 'yyyyMMddHHmmss') - 25200 as TIMESTAMP)),'yyyymmdd'), 1, 0) as is_new_style
+        from yishou_data.dim_goods_no_info_hour
+    ) as goods_no_table
+    on main_table.goods_no = goods_no_table.goods_no
+
+    where goods_no_table.is_new_style = 1
+
+    having row_number_id <= 900
+)
+group by user_id
+DISTRIBUTE BY ht
+;
+[2023/10/08 09:58:40 GMT+0800] [INFO] dli.sql.badRecordsPath=obs://dlf-log-0ba6e278cc80f3562f48c00242b9c5d8/429bc7103cd04b0c97d69038cd67f872/ads_user_exposure_suppress_曝光打压/2023-10-08_08_00_00.000/ads_user_exposure_suppress/dli.badRecords
+[2023/10/08 09:58:40 GMT+0800] [INFO] submit dli sql job with Service-Transaction-Id: 646ad369-1059-4a23-b1b6-bc152b0dd97e
+[2023/10/08 09:58:40 GMT+0800] [INFO] submit dli sql job to queue: big_queue2
+[2023/10/08 09:58:40 GMT+0800] [INFO] DLI job id is:c5ae91dc-2aa1-47d3-b837-40a83cbeb5ba
+[2023/10/08 09:58:40 GMT+0800] [INFO] Spark UI path of DLI SQL Job [ads_user_exposure_suppress] is [https://console.huaweicloud.com/dli/web/0ba6e278cc80f3562f48c00242b9c5d8/sql/c5ae91dc-2aa1-47d3-b837-40a83cbeb5ba/sparkui].
+[2023/10/08 09:58:40 GMT+0800] [INFO] submit job success. Waiting for job execution to complete...
+[2023/10/08 10:01:21 GMT+0800] [INFO] DLI sql execute success, number of scanned data: 1346596256, number of results: 23696
+[2023/10/08 10:01:21 GMT+0800] [INFO] prepare to execute SQL:-- ##### 只有新款
+
+-- -- 建表语句
+-- DROP TABLE if exists yishou_daily.ads_user_exposure_suppress_others;
+-- create external table if not exists yishou_daily.ads_user_exposure_suppress_others (
+--     user_id bigint comment '用户id'
+--     , goods_no string comment '商品货号'
+-- ) comment '用户曝光打压-其他频道'
+-- PARTITIONED BY (ht STRING COMMENT '小时分区（yyyyMMddHH）')
+-- STORED AS ORC LOCATION 'obs://yishou-bigdata/yishou_daily.db/ads_user_exposure_suppress_others'
+-- ;
+
+-- 跑数脚本
+insert overwrite table yishou_daily.ads_user_exposure_suppress_others partition(ht)
+select
+    user_id
+    , concat_ws(',', collect_list(goods_no)) as goods_no
+    , substr(20231008080000, 1, 10) as ht
+from (
+    select
+        user_id
+        , goods_no
+        , exposure_num
+        , is_add_cart_supply
+        , row_number() over(partition by user_id order by exposure_num desc, is_add_cart_supply asc, goods_no asc) as row_number_id
+    from yishou_daily.ads_user_exposure_suppress_detail
+    having row_number_id <= 900
+)
+group by user_id
+DISTRIBUTE BY floor(rand()*20)
+;
+[2023/10/08 10:01:21 GMT+0800] [INFO] dli.sql.badRecordsPath=obs://dlf-log-0ba6e278cc80f3562f48c00242b9c5d8/429bc7103cd04b0c97d69038cd67f872/ads_user_exposure_suppress_曝光打压/2023-10-08_08_00_00.000/ads_user_exposure_suppress/dli.badRecords
+[2023/10/08 10:01:21 GMT+0800] [INFO] submit dli sql job with Service-Transaction-Id: 3a0623f4-fca2-4dfc-9ba4-905e9ba46987
+[2023/10/08 10:01:21 GMT+0800] [INFO] submit dli sql job to queue: big_queue2
+[2023/10/08 10:01:21 GMT+0800] [INFO] DLI job id is:3b3c36be-9318-4dd0-8659-7c0a490bffe2
+[2023/10/08 10:01:21 GMT+0800] [INFO] Spark UI path of DLI SQL Job [ads_user_exposure_suppress] is [https://console.huaweicloud.com/dli/web/0ba6e278cc80f3562f48c00242b9c5d8/sql/3b3c36be-9318-4dd0-8659-7c0a490bffe2/sparkui].
+[2023/10/08 10:01:21 GMT+0800] [INFO] submit job success. Waiting for job execution to complete...
+[2023/10/08 10:18:02 GMT+0800] [INFO] DLI sql execute success, number of scanned data: 1339929779, number of results: 920535
